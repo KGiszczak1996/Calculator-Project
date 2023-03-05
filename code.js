@@ -9,14 +9,17 @@ var result = 0;
 var input = (symbol) => {
   switch (symbol) {
     case 0:
-      if (memory == "") {
+      if (operator == "") {
+        memory = `${memory}${0}`;
+        document.getElementById("end").value = memory;
+        operator = "";
         break;
       } else {
-        memory = `${memory}${0}`;
+        memory = `${memory}${operator}${0}`;
+        document.getElementById("end").value = memory;
+        operator = "";
+        break;
       }
-      document.getElementById("end").value = memory;
-      operator = "";
-      break;
     case 1:
       if (operator == "") {
         memory = `${memory}${1}`;
@@ -186,7 +189,7 @@ var input = (symbol) => {
           operatorMemory[j] = undefined;
           if (i == memoryNums.length - 1) {
             k = 1;
-            i = 0;
+            i = -1;
             j = -1;
             continue;
           }
@@ -196,31 +199,38 @@ var input = (symbol) => {
           operatorMemory[j] = undefined;
           if (i == memoryNums.length - 1) {
             k = 1;
-            i = 0;
+            i = -1;
             j = -1;
             continue;
           }
         } else if (operatorMemory[j] == "+" && k == 1) {
-          if (j == 0) {
-            result = memoryNums[i] + memoryNums[i + 1];
-            i++;
-          } else {
-            result += memoryNums[i];
-          }
+          result += memoryNums[i + 1];
         } else if (operatorMemory[j] == "-" && k == 1) {
-          if (j == 0) {
-            result = memoryNums[i] - memoryNums[i + 1];
-            i++;
-          } else {
-            result -= memoryNums[i];
+          result -= memoryNums[i + 1];
+        } else if (
+          operatorMemory[j] == undefined &&
+          k == 1 &&
+          !isNaN(memoryNums[i + 1])
+        ) {
+          for (let l = j; l >= 0; l--) {
+            if (operatorMemory[l - 1] == "+") {
+              result += memoryNums[i + 1];
+              break;
+            } else if (operatorMemory[l - 1] == "-") {
+              result -= memoryNums[i + 1];
+              break;
+            }
           }
         } else if (i == memoryNums.length - 1 && k == 0) {
           k = 1;
           i = -1;
           j = -1;
-          // result = memoryNums[memoryNums.length - 1];
+          result = memoryNums[0];
           continue;
         }
+      }
+      if (result == 0) {
+        result = memoryNums[memoryNums.length - 1];
       }
       document.getElementById("end").value = result;
       // result = operatorMemory;
