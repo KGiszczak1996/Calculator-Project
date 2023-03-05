@@ -213,7 +213,10 @@ var input = (symbol) => {
           !isNaN(memoryNums[i + 1])
         ) {
           for (let l = j; l >= 0; l--) {
-            if (operatorMemory[l - 1] == "+") {
+            if (result == 0) {
+              result = memoryNums[i + 1];
+              break;
+            } else if (operatorMemory[l - 1] == "+") {
               result += memoryNums[i + 1];
               break;
             } else if (operatorMemory[l - 1] == "-") {
