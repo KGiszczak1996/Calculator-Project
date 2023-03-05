@@ -232,12 +232,7 @@ var input = (symbol) => {
           continue;
         }
       }
-      if (result == 0) {
-        result = memoryNums[memoryNums.length - 1];
-      }
       document.getElementById("end").value = result;
-      // result = operatorMemory;
-      // document.getElementById("end").value = result;
       break;
   }
 };
