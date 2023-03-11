@@ -4,6 +4,7 @@ var memoryTemp = "";
 var memoryNums = [];
 var operatorMemory = [];
 var operator = "";
+var Syntax = false;
 var result = 0;
 
 var input = (symbol) => {
@@ -186,9 +187,18 @@ var input = (symbol) => {
       for (let i = 0; i <= memory.length; i++) {
         if (isNaN(memory[i]) == false) {
           memoryTemp += memory[i];
+        } else if (memory[i] == ".") {
+          if (Syntax == true) {
+            document.getElementById("end").value = "SyntaxError";
+            return;
+          } else {
+            memoryTemp += memory[i];
+            Syntax = true;
+          }
         } else {
-          memoryNums.push(parseInt(memoryTemp));
+          memoryNums.push(parseFloat(memoryTemp));
           operatorMemory.push(memory[i]);
+          Syntax = false;
           memoryTemp = "";
         }
       }
