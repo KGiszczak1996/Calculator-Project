@@ -5,6 +5,7 @@ var memoryNums = [];
 var operatorMemory = [];
 var operator = "";
 var Syntax = false;
+var firstNegative = "";
 var result = 0;
 
 var input = (symbol) => {
@@ -149,13 +150,10 @@ var input = (symbol) => {
         break;
       }
     case "-":
-      if (memory == "") {
-        break;
-      } else {
-        document.getElementById("end").value = memory + "-";
-        operator = "-";
-        break;
-      }
+      document.getElementById("end").value = memory + "-";
+      operator = "-";
+      break;
+
     case "*":
       if (memory == "") {
         break;
@@ -181,9 +179,14 @@ var input = (symbol) => {
       memorySplit = "";
       operatorMemory = [];
       result = 0;
+      Syntax = false;
+      firstNegative = false;
       break;
     case "=":
       memory = memory.split("");
+      if (memory[0] == "-") {
+        firstNegative = memory.shift();
+      }
       for (let i = 0; i <= memory.length; i++) {
         if (isNaN(memory[i]) == false) {
           memoryTemp += memory[i];
@@ -201,6 +204,10 @@ var input = (symbol) => {
           Syntax = false;
           memoryTemp = "";
         }
+      }
+      if (firstNegative == "-") {
+        memoryNums[0] *= -1;
+        firstNegative = "";
       }
       // result = memoryNums[0];
       for (let i = 0, j = 0, k = 0; i < memoryNums.length; i++, j++) {
