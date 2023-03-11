@@ -133,14 +133,8 @@ var input = (symbol) => {
         memory = `0.`;
         document.getElementById("end").value = memory;
         break;
-      }
-      if (operator == "") {
-        memory = `${memory}.`;
-        document.getElementById("end").value = memory;
-        operator = "";
-        break;
       } else {
-        memory = `${memory}${operator}.`;
+        memory = `${memory}.`;
         document.getElementById("end").value = memory;
         operator = "";
         break;
