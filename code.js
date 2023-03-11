@@ -10,120 +10,137 @@ var input = (symbol) => {
   switch (symbol) {
     case 0:
       if (operator == "") {
-        memory = `${memory}${0}`;
+        memory = `${memory}0`;
         document.getElementById("end").value = memory;
         operator = "";
         break;
       } else {
-        memory = `${memory}${operator}${0}`;
+        memory = `${memory}${operator}0`;
         document.getElementById("end").value = memory;
         operator = "";
         break;
       }
     case 1:
       if (operator == "") {
-        memory = `${memory}${1}`;
+        memory = `${memory}1`;
         document.getElementById("end").value = memory;
         operator = "";
         break;
       } else {
-        memory = `${memory}${operator}${1}`;
+        memory = `${memory}${operator}1`;
         document.getElementById("end").value = memory;
         operator = "";
         break;
       }
     case 2:
       if (operator == "") {
-        memory = `${memory}${2}`;
+        memory = `${memory}2`;
         document.getElementById("end").value = memory;
         operator = "";
         break;
       } else {
-        memory = `${memory}${operator}${2}`;
+        memory = `${memory}${operator}2`;
         document.getElementById("end").value = memory;
         operator = "";
         break;
       }
     case 3:
       if (operator == "") {
-        memory = `${memory}${3}`;
+        memory = `${memory}3`;
         document.getElementById("end").value = memory;
         operator = "";
         break;
       } else {
-        memory = `${memory}${operator}${3}`;
+        memory = `${memory}${operator}3`;
         document.getElementById("end").value = memory;
         operator = "";
         break;
       }
     case 4:
       if (operator == "") {
-        memory = `${memory}${4}`;
+        memory = `${memory}4`;
         document.getElementById("end").value = memory;
         operator = "";
         break;
       } else {
-        memory = `${memory}${operator}${4}`;
+        memory = `${memory}${operator}4`;
         document.getElementById("end").value = memory;
         operator = "";
         break;
       }
     case 5:
       if (operator == "") {
-        memory = `${memory}${5}`;
+        memory = `${memory}5`;
         document.getElementById("end").value = memory;
         operator = "";
         break;
       } else {
-        memory = `${memory}${operator}${5}`;
+        memory = `${memory}${operator}5`;
         document.getElementById("end").value = memory;
         operator = "";
         break;
       }
     case 6:
       if (operator == "") {
-        memory = `${memory}${6}`;
+        memory = `${memory}6`;
         document.getElementById("end").value = memory;
         operator = "";
         break;
       } else {
-        memory = `${memory}${operator}${6}`;
+        memory = `${memory}${operator}6`;
         document.getElementById("end").value = memory;
         operator = "";
         break;
       }
     case 7:
       if (operator == "") {
-        memory = `${memory}${7}`;
+        memory = `${memory}7`;
         document.getElementById("end").value = memory;
         operator = "";
         break;
       } else {
-        memory = `${memory}${operator}${7}`;
+        memory = `${memory}${operator}7`;
         document.getElementById("end").value = memory;
         operator = "";
         break;
       }
     case 8:
       if (operator == "") {
-        memory = `${memory}${8}`;
+        memory = `${memory}8`;
         document.getElementById("end").value = memory;
         operator = "";
         break;
       } else {
-        memory = `${memory}${operator}${8}`;
+        memory = `${memory}${operator}8`;
         document.getElementById("end").value = memory;
         operator = "";
         break;
       }
     case 9:
       if (operator == "") {
-        memory = `${memory}${9}`;
+        memory = `${memory}9`;
         document.getElementById("end").value = memory;
         operator = "";
         break;
       } else {
-        memory = `${memory}${operator}${9}`;
+        memory = `${memory}${operator}9`;
+        document.getElementById("end").value = memory;
+        operator = "";
+        break;
+      }
+    case ".":
+      if (memory == "") {
+        memory = `0.`;
+        document.getElementById("end").value = memory;
+        break;
+      }
+      if (operator == "") {
+        memory = `${memory}.`;
+        document.getElementById("end").value = memory;
+        operator = "";
+        break;
+      } else {
+        memory = `${memory}${operator}.`;
         document.getElementById("end").value = memory;
         operator = "";
         break;
