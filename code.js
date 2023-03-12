@@ -23,109 +23,21 @@ var input = (symbol) => {
         break;
       }
     case 1:
-      if (operator == "") {
-        memory = `${memory}1`;
-        document.getElementById("end").value = memory;
-        operator = "";
-        break;
-      } else {
-        memory = `${memory}${operator}1`;
-        document.getElementById("end").value = memory;
-        operator = "";
-        break;
-      }
     case 2:
-      if (operator == "") {
-        memory = `${memory}2`;
-        document.getElementById("end").value = memory;
-        operator = "";
-        break;
-      } else {
-        memory = `${memory}${operator}2`;
-        document.getElementById("end").value = memory;
-        operator = "";
-        break;
-      }
     case 3:
-      if (operator == "") {
-        memory = `${memory}3`;
-        document.getElementById("end").value = memory;
-        operator = "";
-        break;
-      } else {
-        memory = `${memory}${operator}3`;
-        document.getElementById("end").value = memory;
-        operator = "";
-        break;
-      }
     case 4:
-      if (operator == "") {
-        memory = `${memory}4`;
-        document.getElementById("end").value = memory;
-        operator = "";
-        break;
-      } else {
-        memory = `${memory}${operator}4`;
-        document.getElementById("end").value = memory;
-        operator = "";
-        break;
-      }
     case 5:
-      if (operator == "") {
-        memory = `${memory}5`;
-        document.getElementById("end").value = memory;
-        operator = "";
-        break;
-      } else {
-        memory = `${memory}${operator}5`;
-        document.getElementById("end").value = memory;
-        operator = "";
-        break;
-      }
     case 6:
-      if (operator == "") {
-        memory = `${memory}6`;
-        document.getElementById("end").value = memory;
-        operator = "";
-        break;
-      } else {
-        memory = `${memory}${operator}6`;
-        document.getElementById("end").value = memory;
-        operator = "";
-        break;
-      }
     case 7:
-      if (operator == "") {
-        memory = `${memory}7`;
-        document.getElementById("end").value = memory;
-        operator = "";
-        break;
-      } else {
-        memory = `${memory}${operator}7`;
-        document.getElementById("end").value = memory;
-        operator = "";
-        break;
-      }
     case 8:
-      if (operator == "") {
-        memory = `${memory}8`;
-        document.getElementById("end").value = memory;
-        operator = "";
-        break;
-      } else {
-        memory = `${memory}${operator}8`;
-        document.getElementById("end").value = memory;
-        operator = "";
-        break;
-      }
     case 9:
       if (operator == "") {
-        memory = `${memory}9`;
+        memory = `${memory}${symbol}`;
         document.getElementById("end").value = memory;
         operator = "";
         break;
       } else {
-        memory = `${memory}${operator}9`;
+        memory = `${memory}${operator}${symbol}`;
         document.getElementById("end").value = memory;
         operator = "";
         break;
@@ -142,34 +54,19 @@ var input = (symbol) => {
         break;
       }
     case "+":
+    case "*":
+    case "/":
       if (memory == "") {
         break;
       } else {
-        document.getElementById("end").value = memory + "+";
-        operator = "+";
+        document.getElementById("end").value = memory + symbol;
+        operator = symbol;
         break;
       }
     case "-":
       document.getElementById("end").value = memory + "-";
       operator = "-";
       break;
-
-    case "*":
-      if (memory == "") {
-        break;
-      } else {
-        document.getElementById("end").value = memory + "*";
-        operator = "*";
-        break;
-      }
-    case "/":
-      if (memory == "") {
-        break;
-      } else {
-        document.getElementById("end").value = memory + "/";
-        operator = "/";
-        break;
-      }
     case "C":
       document.getElementById("end").value = 0;
       memory = "";
