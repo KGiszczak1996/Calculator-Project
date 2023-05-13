@@ -23,7 +23,14 @@ const memoryClear = () => {
 const input = (symbol) => {
   switch (symbol) {
     case 0:
-      if (operator == "") {
+      if (
+        (memory == "" && operator != "-") ||
+        (memory.charAt(0) == "-" &&
+          memory.charAt(1) == "0" &&
+          memory.charAt(2) != ".")
+      ) {
+        break;
+      } else if (operator == "") {
         memory = `${memory}0`;
         document.getElementById("end").value = memory;
         operator = "";
