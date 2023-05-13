@@ -106,7 +106,6 @@ var input = (symbol) => {
         memoryNums[0] *= -1;
         firstNegative = "";
       }
-      // result = memoryNums[0];
       for (let i = 0, j = 0, k = 0; i < memoryNums.length; i++, j++) {
         if (operatorMemory[j] == "*" && k == 0) {
           memoryNums[i + 1] = memoryNums[i] * memoryNums[i + 1];
