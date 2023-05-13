@@ -8,7 +8,19 @@ var Syntax = false;
 var firstNegative = "";
 var result = 0;
 
-var input = (symbol) => {
+const memoryClear = () => {
+  memory = "";
+  operator = "";
+  memoryNums = [];
+  memoryTemp = "";
+  memorySplit = "";
+  operatorMemory = [];
+  result = 0;
+  Syntax = false;
+  firstNegative = false;
+};
+
+const input = (symbol) => {
   switch (symbol) {
     case 0:
       if (operator == "") {
@@ -68,16 +80,8 @@ var input = (symbol) => {
       operator = "-";
       break;
     case "C":
+      memoryClear();
       document.getElementById("end").value = 0;
-      memory = "";
-      operator = "";
-      memoryNums = [];
-      memoryTemp = "";
-      memorySplit = "";
-      operatorMemory = [];
-      result = 0;
-      Syntax = false;
-      firstNegative = false;
       break;
     case "=":
       memory = memory.split("");
@@ -157,6 +161,7 @@ var input = (symbol) => {
         }
       }
       document.getElementById("end").value = result;
+      memoryClear();
       break;
   }
 };
