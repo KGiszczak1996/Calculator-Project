@@ -8,7 +8,19 @@ var Syntax = false;
 var firstNegative = "";
 var result = 0;
 
-var input = (symbol) => {
+const memoryClear = () => {
+  memory = "";
+  operator = "";
+  memoryNums = [];
+  memoryTemp = "";
+  memorySplit = "";
+  operatorMemory = [];
+  result = 0;
+  Syntax = false;
+  firstNegative = false;
+};
+
+const input = (symbol) => {
   switch (symbol) {
     case 0:
       if (operator == "") {
@@ -17,7 +29,7 @@ var input = (symbol) => {
         operator = "";
         break;
       } else {
-        memory = `${memory}${operator}0`;
+        memory = `${memory} ${operator}0`;
         document.getElementById("end").value = memory;
         operator = "";
         break;
@@ -32,12 +44,12 @@ var input = (symbol) => {
     case 8:
     case 9:
       if (operator == "") {
-        memory = `${memory}${symbol}`;
+        memory = `${memory} ${symbol}`;
         document.getElementById("end").value = memory;
         operator = "";
         break;
       } else {
-        memory = `${memory}${operator}${symbol}`;
+        memory = `${memory} ${operator} ${symbol}`;
         document.getElementById("end").value = memory;
         operator = "";
         break;
@@ -59,25 +71,17 @@ var input = (symbol) => {
       if (memory == "") {
         break;
       } else {
-        document.getElementById("end").value = memory + symbol;
+        document.getElementById("end").value = memory + " " + symbol;
         operator = symbol;
         break;
       }
     case "-":
-      document.getElementById("end").value = memory + "-";
+      document.getElementById("end").value = memory + " " + "-";
       operator = "-";
       break;
     case "C":
+      memoryClear();
       document.getElementById("end").value = 0;
-      memory = "";
-      operator = "";
-      memoryNums = [];
-      memoryTemp = "";
-      memorySplit = "";
-      operatorMemory = [];
-      result = 0;
-      Syntax = false;
-      firstNegative = false;
       break;
     case "=":
       memory = memory.split("");
@@ -106,7 +110,6 @@ var input = (symbol) => {
         memoryNums[0] *= -1;
         firstNegative = "";
       }
-      // result = memoryNums[0];
       for (let i = 0, j = 0, k = 0; i < memoryNums.length; i++, j++) {
         if (operatorMemory[j] == "*" && k == 0) {
           memoryNums[i + 1] = memoryNums[i] * memoryNums[i + 1];
@@ -158,6 +161,7 @@ var input = (symbol) => {
         }
       }
       document.getElementById("end").value = result;
+      memoryClear();
       break;
   }
 };
