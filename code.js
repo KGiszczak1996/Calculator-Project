@@ -29,7 +29,7 @@ const input = (symbol) => {
         operator = "";
         break;
       } else {
-        memory = `${memory} ${operator}0`;
+        memory = `${memory}${operator}0`;
         document.getElementById("end").value = memory;
         operator = "";
         break;
@@ -44,12 +44,12 @@ const input = (symbol) => {
     case 8:
     case 9:
       if (operator == "") {
-        memory = `${memory} ${symbol}`;
+        memory = `${memory}${symbol}`;
         document.getElementById("end").value = memory;
         operator = "";
         break;
       } else {
-        memory = `${memory} ${operator} ${symbol}`;
+        memory = `${memory}${operator}${symbol}`;
         document.getElementById("end").value = memory;
         operator = "";
         break;
@@ -71,12 +71,12 @@ const input = (symbol) => {
       if (memory == "") {
         break;
       } else {
-        document.getElementById("end").value = memory + " " + symbol;
+        document.getElementById("end").value = memory + symbol;
         operator = symbol;
         break;
       }
     case "-":
-      document.getElementById("end").value = memory + " " + "-";
+      document.getElementById("end").value = memory + "-";
       operator = "-";
       break;
     case "C":
